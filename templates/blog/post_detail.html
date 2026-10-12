@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Post Detail</h1>
+
+
+{% if user.authenticated %}
+  <a href="{% url 'post_create' post.pk %}">Create Post</a>
+{% else %}
+     <a href="{% url 'login' %}">Tizim kirish </a>
+
+{% endif %}
+
+{% for post in posts %}
+
+    <a href="{% url 'post_detail'  post.id %}">Orqaga Qaytish</a>
+{% empty %}
+    <p>Post not found</p>
+{% endfor %}
+</body>
+</html>
